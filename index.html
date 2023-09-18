@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Example</title>
+    <style>
+        /* Set the map container to fill the entire viewport */
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create a container for the map -->
+    <div id="map"></div>
+
+    <script>
+        // Initialize the map
+        function initMap() {
+            // Coordinates for the center of the map
+            const centerCoords = { lat: -5.609158992759101, lng: 113.8797781166109 }; // Example: San Francisco
+
+            // Create a map object and set its properties
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 6, // Zoom level
+                center: centerCoords, // Center the map at the specified coordinates
+            });
+            fetch('./src/data/output/client_indonesia_timur.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(element => {
+                        console.log(element);
+                        const marker = new google.maps.Marker({
+                            position: { lat: element.lat, lng: element.lng }, // Marker 1 position
+                            map: map, // Map to add the marker to
+                            title: element['NAMA CUSTOMER'], // Marker title (tooltip)
+                        });
+                    });
+                })
+            // // Create markers and add them to the map
+            // const marker1 = new google.maps.Marker({
+            //     position: { lat: 37.7749, lng: -122.4194 }, // Marker 1 position
+            //     map: map, // Map to add the marker to
+            //     title: "Marker 1", // Marker title (tooltip)
+            // });
+
+            // const marker2 = new google.maps.Marker({
+            //     position: { lat: 37.7955, lng: -122.3930 }, // Marker 2 position
+            //     map: map, // Map to add the marker to
+            //     title: "Marker 2", // Marker title (tooltip)
+            // });
+        }
+    </script>
+
+    <!-- Include the Google Maps JavaScript API with your API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>

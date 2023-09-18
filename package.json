@@ -1,0 +1,30 @@
+{
+  "name": "location-marker",
+  "version": "1.0.0",
+  "description": "If you have a list of clients, places, or coordinate which you have an address from. You can show it in the map. The system will generate lat lng data by address or name of the place, then put it on map",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsabitg23/location-marker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsabitg23/location-marker/issues"
+  },
+  "homepage": "https://github.com/tsabitg23/location-marker#readme",
+  "devDependencies": {
+    "@types/bluebird": "^3.5.39",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@google/maps": "^1.1.3",
+    "bluebird": "^3.7.2",
+    "dotenv": "^16.3.1",
+    "exceljs": "^4.3.0"
+  }
+}
